@@ -5,9 +5,9 @@ from langgraph_agent_lab.state import Route, Scenario, initial_state
 def test_scenario_validation():
     scenario = Scenario(id="x", query="hello", expected_route=Route.SIMPLE)
     state = initial_state(scenario)
-    assert state["thread_id"] == "thread-x"
-    assert state["attempt"] == 0
-    assert state["events"] == []
+    assert state.get("thread_id") == "thread-x"
+    assert state.get("attempt") == 0
+    assert state.get("events") == []
 
 
 def test_initial_state_has_required_fields():
